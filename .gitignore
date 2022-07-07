@@ -2,4 +2,4 @@ wordle
 wordle.test
 wordle.exe
 wordle.test.exe
-wordlist.txt
+./wordlist.txt
