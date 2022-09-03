@@ -5,17 +5,20 @@ import (
 	"strings"
 )
 
+// ErrUnequalLength when the state and word are different lengths
 var ErrUnequalLength = errors.New("lengths of word and state are unequal")
 var ErrInvalidChar = errors.New("invalid state character")
 
 // IsMatch returns whether word matches the
 // state, where each character of state is one of:
 //
-// [A-Z] - a green letter in the Wordle state
-// [a-z] - a yellow letter in the Wordle state
+// [A-Z] - a green letter in the [Wordle] state
+// [a-z] - a yellow letter in the [Wordle] state
 // _ - a blank in the Wordle state
 // IsMatch will return an error if the lengths
 // of state and word are not equal
+//
+// [Wordle]: https://www.nytimes.com/games/wordle/index.html
 func IsMatch(state, word, deny string) (bool, error) {
 	for _, r := range []rune(strings.ToUpper(deny)) {
 		if strings.ContainsRune(strings.ToUpper(word), r) {
